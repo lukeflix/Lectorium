@@ -1576,3 +1576,20 @@ class LectoriumApp(App):
 
 if __name__ == '__main__':
     LectoriumApp().run()
+
+
+# Sobrescribir el bloque principal con captura de errores
+import sys
+_original_excepthook = sys.excepthook
+def _crash_handler(exc_type, exc_value, exc_tb):
+    import traceback
+    error = ''.join(traceback.format_exception(exc_type, exc_value, exc_tb))
+    for path in ['/sdcard/lectorium_crash.txt', '/sdcard/Download/lectorium_crash.txt']:
+        try:
+            with open(path, 'w') as f:
+                f.write(error)
+            break
+        except:
+            pass
+    _original_excepthook(exc_type, exc_value, exc_tb)
+sys.excepthook = _crash_handler
