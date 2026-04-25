@@ -16,10 +16,8 @@ android.ndk_api = 21
 android.archs = arm64-v8a
 android.allow_backup = True
 android.accept_sdk_license = True
-android.gradle_dependencies =
 android.enable_androidx = True
 p4a.branch = master
-p4a.bootstrap = sdl2
 log_level = 2
 warn_on_root = 1
 
