@@ -470,7 +470,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
     );
   }
 
-  String _naturalSort(String a, String b) => a.compareTo(b) <= 0 ? a : b;
+  int _naturalSort(String a, String b) => a.compareTo(b);
 
   String _commonPrefix(List<String> strs) {
     if (strs.isEmpty) return '';
